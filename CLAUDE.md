@@ -27,9 +27,14 @@ This is the **DM setter bot workspace** for Jason Cooperson (@jasoncooperson). C
 - **session-logs/** — Session logs and summary reports by date.
 - **archive/** — Disqualified leads, skipped leads, and call outcomes.
 
+### Call Transcripts
+- **call-transcripts/** — Fathom call transcripts saved as formatted markdown. Use `/fathom <name>` to pull new ones.
+
 ### Tools
 - **mc-lookup.sh** — ManyChat subscriber lookup by name or ID. Uses `.env` for API key.
+- **tools/fathom-pull.sh** — Pull a Fathom call transcript and save as markdown. Usage: `./tools/fathom-pull.sh <recording_id> [output_dir]`
 - **tools/whisper-mcp/** — Whisper MCP for voice note transcription.
+- **tools/fathom-mcp/** — Fathom MCP server (gitignored, local only). Provides `mcp__fathom__*` tools for listing meetings, pulling transcripts, etc.
 
 ## DM Setting Framework
 

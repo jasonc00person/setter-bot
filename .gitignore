@@ -1,4 +1,9 @@
+# API keys and local config
 .mcp.json
 .env
+
+# Fathom MCP (cloned dependency, has its own .git)
 tools/fathom-mcp/
-tools/fathom-mcp/transcripts/
+
+# Call transcripts (contain sensitive sales call data)
+call-transcripts/
