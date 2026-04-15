@@ -4,9 +4,16 @@ import { z } from "zod";
 import { execFile } from "child_process";
 import { access } from "fs/promises";
 import path from "path";
+import os from "os";
 
-const WHISPER_CMD = "C:\\Users\\jason\\AppData\\Local\\Python\\pythoncore-3.14-64\\Scripts\\whisper.exe";
-const FFMPEG_DIR = "C:\\Users\\jason\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.0.1-full_build\\bin";
+// Platform-aware defaults
+const IS_WINDOWS = os.platform() === "win32";
+const WHISPER_CMD = process.env.WHISPER_CMD || (IS_WINDOWS
+  ? "C:\\Users\\jason\\AppData\\Local\\Python\\pythoncore-3.14-64\\Scripts\\whisper.exe"
+  : "whisper");
+const FFMPEG_DIR = process.env.FFMPEG_DIR || (IS_WINDOWS
+  ? "C:\\Users\\jason\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.0.1-full_build\\bin"
+  : "");
 
 const server = new McpServer({
   name: "whisper-stt",
@@ -40,14 +47,22 @@ server.tool(
       args.push("--language", language);
     }
 
-    // Add ffmpeg to PATH for whisper
+    // Add ffmpeg to PATH if configured
+    const pathSep = IS_WINDOWS ? ";" : ":";
     const env = {
       ...process.env,
-      PATH: `${FFMPEG_DIR};${process.env.PATH}`,
+      PATH: FFMPEG_DIR ? `${FFMPEG_DIR}${pathSep}${process.env.PATH}` : process.env.PATH,
     };
 
+    // On macOS/Linux, use python3 -m whisper as fallback
+    const cmd = WHISPER_CMD;
+    const useModule = !IS_WINDOWS && cmd === "whisper";
+
+    const actualCmd = useModule ? "python3" : cmd;
+    const actualArgs = useModule ? ["-m", "whisper", ...args] : args;
+
     return new Promise((resolve) => {
-      execFile(WHISPER_CMD, args, { env, timeout: 120000 }, async (error, stdout, stderr) => {
+      execFile(actualCmd, actualArgs, { env, timeout: 120000 }, async (error, stdout, stderr) => {
         if (error) {
           resolve({
             content: [{ type: "text", text: `Transcription error: ${error.message}\n\nstderr: ${stderr}` }],
