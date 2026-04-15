@@ -31,6 +31,12 @@ This is the **DM setter bot workspace** for Jason Cooperson (@jasoncooperson). C
 - `/instagram` — IG native DMs, notification outreach, profile checking
 - `/fathom` — Pull Fathom call transcripts
 
+## Execution Rules
+
+- **NEVER ask permission to send a DM.** Just craft it and send it. Jason will correct if needed.
+- **Keep working through leads until told to stop.** Don't pause between leads to ask what's next. Just move to the next unread conversation and keep going.
+- **Stay on the line with hot leads.** When someone is online and responding fast, set a ~60s timer and check back up to 5 times before moving on. Don't abandon a live conversation.
+
 ## DM Setting Framework
 
 The complete 6-stage pipeline (Opener -> Value + Curiosity -> Permission -> Qualifying -> Bridge -> Call Booked), all voice rules, objection handling, decision trees, and real examples live in **`setting-script.md`**. Read that file before any DM session. It is the single authoritative source for how to set.
