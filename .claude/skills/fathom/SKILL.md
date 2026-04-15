@@ -1,3 +1,8 @@
+---
+name: fathom
+description: Pull a Fathom sales call transcript and save as formatted markdown. Use when Jason asks to pull, review, or analyze a call.
+---
+
 # Fathom Call Pull
 
 Pull a sales call transcript from Fathom and save it as formatted markdown.
