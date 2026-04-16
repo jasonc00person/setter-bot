@@ -36,6 +36,7 @@ This is the **DM setter bot workspace** for Jason Cooperson (@jasoncooperson). C
 - **NEVER ask permission to send a DM.** Just craft it and send it. Jason will correct if needed.
 - **Keep working through leads until told to stop.** Don't pause between leads to ask what's next. Just move to the next unread conversation and keep going.
 - **Stay on the line with hot leads.** When someone is online and responding fast, set a ~60s timer and check back up to 5 times before moving on. Don't abandon a live conversation.
+- **ManyChat unread refresh loop.** When you reach the bottom of the unread list, you are NOT done. Refresh the page, click Unread filter again, and keep working. ManyChat only loads a batch at a time. Repeat this refresh cycle until the unread list comes back truly empty (zero conversations). Never assume the inbox is clear after one pass.
 
 ## DM Setting Framework
 

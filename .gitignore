@@ -7,3 +7,4 @@ tools/fathom-mcp/
 
 # Call transcripts (contain sensitive sales call data)
 call-transcripts/
+tools/whisper-mcp/node_modules/
