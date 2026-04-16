@@ -122,25 +122,26 @@ This file is the handoff to the Outreach workflow.
 
 ## Outreach Workflow (Sending Openers)
 
-### Opening the Notifications Panel
+Work through `prospect-list.md` top to bottom. Send personalized Stage 1 openers to each prospect. Mark as sent when done.
 
-1. Navigate to `https://www.instagram.com/`
-2. Use `find` tool with query `"Notifications link in sidebar"` to get the ref
-3. Click the ref to open the Notifications panel
-
-**Never** use href="#" refs from `read_page` output — they shift on every page load and often open Search or Explore instead. The `find` tool by semantic description is the only reliable method.
-
-If clicking a ref opens Search by mistake: press Escape to close it, re-read the page, use `find` again.
-
-### Sending DMs (Stage 1 Openers)
-
-#### Opening a DM Conversation
+### How to Open a DM Conversation (Fastest Method)
 
 1. Navigate to `https://www.instagram.com/direct/inbox/`
-2. Use `find` tool to locate the "Search" input — click it
-3. Type the handle or name — click the result
+2. Click the **Search** bar at the top of the inbox sidebar
+3. Type the prospect's exact handle (e.g. `loicscales`)
+4. Wait 2 seconds for results to load
+5. Click their name under "More accounts" (or under existing threads if there's prior convo)
+6. The conversation opens — use `find` tool for "Message input box" to get the textbox ref
+7. Click the ref, type message, press Enter
+8. For second message: type immediately (cursor stays), press Enter
+9. Click the back arrow (`←`) to return to search, repeat for next prospect
 
-Or from their profile, click the "Message" button.
+**Why not profile → Message button?** The Message button only appears on profiles you already follow. For new prospects, the DM search bar is the only reliable method on web.
+
+**Speed tips:**
+- Don't screenshot between every send — trust the flow. Only screenshot to verify if something feels off
+- After sending, click back arrow → click search bar → type next handle immediately
+- The `find` tool for "Message input box" is more reliable than clicking coordinates on the textbox
 
 #### Typing and Sending
 
